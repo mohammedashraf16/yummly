@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:yumly/features/home/food_page.dart';
 import 'package:yumly/features/home/models/food.dart';
 import 'package:yumly/features/home/models/restaurant.dart';
 import 'package:yumly/features/home/widgets/my_current_location.dart';
 import 'package:yumly/features/home/widgets/my_description_box.dart';
+import 'package:yumly/features/home/widgets/my_food_tile.dart';
 import 'package:yumly/features/home/widgets/my_sliver_app_bar.dart';
 import 'package:yumly/features/home/widgets/my_tab_bar.dart';
 
@@ -47,7 +49,14 @@ class _HomePageState extends State<HomePage>
         padding: EdgeInsets.zero,
         itemCount: categoryMenu.length,
         itemBuilder: (context, index) {
-          return ListTile(title: Text(categoryMenu[index].name),);
+          final food = categoryMenu[index];
+          return MyFoodTile(
+            food: food,
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => FoodPage(food: food)),
+            ),
+          );
         },
       );
     }).toList();
@@ -75,13 +84,14 @@ class _HomePageState extends State<HomePage>
             ),
           ),
         ],
-        body: Consumer<Restaurant>(builder: (context, restaurant, child) {
-         return TabBarView(
-            controller: _tabController,
-            children: getFoodInThisCategory(restaurant.menu),
-          );
-
-        },)
+        body: Consumer<Restaurant>(
+          builder: (context, restaurant, child) {
+            return TabBarView(
+              controller: _tabController,
+              children: getFoodInThisCategory(restaurant.menu),
+            );
+          },
+        ),
       ),
     );
   }

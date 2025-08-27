@@ -1,7 +1,9 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:yumly/features/home/models/cart_item.dart';
 import 'package:yumly/features/home/models/food.dart';
 
-class Restaurant with ChangeNotifier{
+class Restaurant with ChangeNotifier {
   final List<Food> _menu = [
     // Burgers
     Food(
@@ -74,7 +76,7 @@ class Restaurant with ChangeNotifier{
     Food(
       name: "Caesar Salad",
       description:
-      "A classic mix of crisp romaine lettuce, crunchy croutons, and parmesan cheese, tossed in a creamy Caesar dressing for a refreshing and savory bite.",
+          "A classic mix of crisp romaine lettuce, crunchy croutons, and parmesan cheese, tossed in a creamy Caesar dressing for a refreshing and savory bite.",
       imagePath: "assets/images/salad/caeser_salad.png",
       price: 7.99,
       foodCategory: FoodCategory.salads,
@@ -87,7 +89,7 @@ class Restaurant with ChangeNotifier{
     Food(
       name: "Greek Salad",
       description:
-      "A Mediterranean favorite with fresh cucumbers, tomatoes, red onions, olives, and feta cheese, served with a light olive oil and herb dressing.",
+          "A Mediterranean favorite with fresh cucumbers, tomatoes, red onions, olives, and feta cheese, served with a light olive oil and herb dressing.",
       imagePath: "assets/images/salad/greek_salad.png",
       price: 8.49,
       foodCategory: FoodCategory.salads,
@@ -100,7 +102,7 @@ class Restaurant with ChangeNotifier{
     Food(
       name: "Quinoa Salad",
       description:
-      "A healthy and protein-packed salad with fluffy quinoa, fresh veggies, herbs, and a light lemon vinaigrette for a wholesome, refreshing flavor.",
+          "A healthy and protein-packed salad with fluffy quinoa, fresh veggies, herbs, and a light lemon vinaigrette for a wholesome, refreshing flavor.",
       imagePath: "assets/images/salad/quinoa_salad.png",
       price: 9.49,
       foodCategory: FoodCategory.salads,
@@ -113,7 +115,7 @@ class Restaurant with ChangeNotifier{
     Food(
       name: "Asian Sesame Salad",
       description:
-      "A crisp and colorful mix of greens, carrots, red cabbage, and crunchy noodles, tossed in a sesame-ginger dressing for a sweet and savory Asian-inspired flavor.",
+          "A crisp and colorful mix of greens, carrots, red cabbage, and crunchy noodles, tossed in a sesame-ginger dressing for a sweet and savory Asian-inspired flavor.",
       imagePath: "assets/images/salad/asiansesamne_salad.png",
       price: 8.99,
       foodCategory: FoodCategory.salads,
@@ -126,7 +128,7 @@ class Restaurant with ChangeNotifier{
     Food(
       name: "Southwest Chicken Salad",
       description:
-      "A zesty salad with grilled chicken, black beans, corn, tomatoes, and crispy tortilla strips, topped with a creamy southwest dressing for a bold flavor kick.",
+          "A zesty salad with grilled chicken, black beans, corn, tomatoes, and crispy tortilla strips, topped with a creamy southwest dressing for a bold flavor kick.",
       imagePath: "assets/images/salad/southwest_salad.png",
       price: 9.99,
       foodCategory: FoodCategory.salads,
@@ -141,7 +143,7 @@ class Restaurant with ChangeNotifier{
     Food(
       name: "Sweet Potato Fries",
       description:
-      "Crispy golden sweet potato fries with a naturally sweet flavor, served hot and perfectly seasoned.",
+          "Crispy golden sweet potato fries with a naturally sweet flavor, served hot and perfectly seasoned.",
       imagePath: "assets/images/sides/sweet_potato_side.png",
       price: 4.99,
       foodCategory: FoodCategory.sides,
@@ -154,7 +156,7 @@ class Restaurant with ChangeNotifier{
     Food(
       name: "Onion Rings",
       description:
-      "Crispy, golden-battered onion rings with a crunchy bite and sweet onion flavor, perfect for dipping.",
+          "Crispy, golden-battered onion rings with a crunchy bite and sweet onion flavor, perfect for dipping.",
       imagePath: "assets/images/sides/onion_rings_side.png",
       price: 4.49,
       foodCategory: FoodCategory.sides,
@@ -167,7 +169,7 @@ class Restaurant with ChangeNotifier{
     Food(
       name: "Garlic Bread",
       description:
-      "Toasted bread infused with garlic butter and herbs, served warm and crispy with a soft center.",
+          "Toasted bread infused with garlic butter and herbs, served warm and crispy with a soft center.",
       imagePath: "assets/images/sides/garlic_bread_side.png",
       price: 3.99,
       foodCategory: FoodCategory.sides,
@@ -180,7 +182,7 @@ class Restaurant with ChangeNotifier{
     Food(
       name: "Loaded Sweet Potato Fries",
       description:
-      "Crispy sweet potato fries topped with melted cheese, crispy bacon bits, and a drizzle of creamy sauce for a flavorful snack.",
+          "Crispy sweet potato fries topped with melted cheese, crispy bacon bits, and a drizzle of creamy sauce for a flavorful snack.",
       imagePath: "assets/images/sides/loadedfries_side.png",
       price: 6.99,
       foodCategory: FoodCategory.sides,
@@ -193,7 +195,7 @@ class Restaurant with ChangeNotifier{
     Food(
       name: "Crispy Mac & Cheese Bites",
       description:
-      "Golden, bite-sized pieces of creamy mac & cheese coated in a crispy crust — crunchy outside, cheesy inside.",
+          "Golden, bite-sized pieces of creamy mac & cheese coated in a crispy crust — crunchy outside, cheesy inside.",
       imagePath: "assets/images/sides/mac_side.png",
       price: 5.49,
       foodCategory: FoodCategory.sides,
@@ -208,8 +210,8 @@ class Restaurant with ChangeNotifier{
     Food(
       name: "Baklava",
       description:
-      "A rich Middle Eastern pastry made of flaky layers filled with chopped nuts and sweetened with honey or syrup.",
-      imagePath: "assets/images/desserts/baklava.png",
+          "A rich Middle Eastern pastry made of flaky layers filled with chopped nuts and sweetened with honey or syrup.",
+      imagePath: "assets/images/desserts/baklava_dessert.png",
       price: 4.99,
       foodCategory: FoodCategory.desserts,
       availableAddons: [
@@ -221,8 +223,8 @@ class Restaurant with ChangeNotifier{
     Food(
       name: "Cheesecake",
       description:
-      "A creamy, smooth dessert with a buttery biscuit base, baked to perfection and often topped with fruit or syrup.",
-      imagePath: "assets/images/desserts/cheesecake.png",
+          "A creamy, smooth dessert with a buttery biscuit base, baked to perfection and often topped with fruit or syrup.",
+      imagePath: "assets/images/desserts/cheesecake_dessert.png",
       price: 5.99,
       foodCategory: FoodCategory.desserts,
       availableAddons: [
@@ -234,8 +236,8 @@ class Restaurant with ChangeNotifier{
     Food(
       name: "Chocolate Cake",
       description:
-      "A moist and decadent chocolate sponge layered with rich chocolate frosting — a timeless indulgence.",
-      imagePath: "assets/images/desserts/chocolate_cake.png",
+          "A moist and decadent chocolate sponge layered with rich chocolate frosting — a timeless indulgence.",
+      imagePath: "assets/images/desserts/chocolate_cake_dessert.png",
       price: 5.49,
       foodCategory: FoodCategory.desserts,
       availableAddons: [
@@ -247,8 +249,8 @@ class Restaurant with ChangeNotifier{
     Food(
       name: "Ice Cream",
       description:
-      "Creamy, refreshing scoops of ice cream available in a variety of classic flavors.",
-      imagePath: "assets/images/desserts/ice_cream.png",
+          "Creamy, refreshing scoops of ice cream available in a variety of classic flavors.",
+      imagePath: "assets/images/desserts/ice_cream_dessert.png",
       price: 3.99,
       foodCategory: FoodCategory.desserts,
       availableAddons: [
@@ -260,8 +262,8 @@ class Restaurant with ChangeNotifier{
     Food(
       name: "Tiramisu",
       description:
-      "A classic Italian dessert made with espresso-soaked ladyfingers, mascarpone cream, and a dusting of cocoa powder.",
-      imagePath: "assets/images/desserts/tiramisu.png",
+          "A classic Italian dessert made with espresso-soaked ladyfingers, mascarpone cream, and a dusting of cocoa powder.",
+      imagePath: "assets/images/desserts/tiramisu_dessert.png",
       price: 6.49,
       foodCategory: FoodCategory.desserts,
       availableAddons: [
@@ -275,7 +277,7 @@ class Restaurant with ChangeNotifier{
     Food(
       name: "Apple Drink",
       description:
-      "A refreshing chilled apple juice with a crisp and naturally sweet flavor.",
+          "A refreshing chilled apple juice with a crisp and naturally sweet flavor.",
       imagePath: "assets/images/drinks/apple_drink.png",
       price: 2.99,
       foodCategory: FoodCategory.drinks,
@@ -288,8 +290,8 @@ class Restaurant with ChangeNotifier{
     Food(
       name: "Lemonade",
       description:
-      "Freshly squeezed lemonade with a tangy and refreshing citrus kick.",
-      imagePath: "assets/images/drinks/lemonade.png",
+          "Freshly squeezed lemonade with a tangy and refreshing citrus kick.",
+      imagePath: "assets/images/drinks/lemonade_drink.png",
       price: 2.79,
       foodCategory: FoodCategory.drinks,
       availableAddons: [
@@ -301,8 +303,8 @@ class Restaurant with ChangeNotifier{
     Food(
       name: "Mango Drink",
       description:
-      "A tropical favorite made from ripe, juicy mangoes for a smooth and sweet flavor.",
-      imagePath: "assets/images/drinks/mango.png",
+          "A tropical favorite made from ripe, juicy mangoes for a smooth and sweet flavor.",
+      imagePath: "assets/images/drinks/mango_drink.png",
       price: 3.49,
       foodCategory: FoodCategory.drinks,
       availableAddons: [
@@ -314,8 +316,8 @@ class Restaurant with ChangeNotifier{
     Food(
       name: "Orange Drink",
       description:
-      "Classic fresh-squeezed orange juice, bright and full of vitamin C.",
-      imagePath: "assets/images/drinks/orange.png",
+          "Classic fresh-squeezed orange juice, bright and full of vitamin C.",
+      imagePath: "assets/images/drinks/orange_drink.png",
       price: 2.99,
       foodCategory: FoodCategory.drinks,
       availableAddons: [
@@ -327,8 +329,8 @@ class Restaurant with ChangeNotifier{
     Food(
       name: "Pineapple Drink",
       description:
-      "A refreshing tropical juice with the perfect balance of sweet and tangy pineapple flavor.",
-      imagePath: "assets/images/drinks/pineapple.png",
+          "A refreshing tropical juice with the perfect balance of sweet and tangy pineapple flavor.",
+      imagePath: "assets/images/drinks/pineapple_drink.png",
       price: 3.29,
       foodCategory: FoodCategory.drinks,
       availableAddons: [
@@ -337,8 +339,56 @@ class Restaurant with ChangeNotifier{
         Addon(name: "Ice Cubes", price: 0.29),
       ],
     ),
-
   ];
 
   List<Food> get menu => _menu;
+  List<CartItem> get cart=>_cart;
+final List<CartItem> _cart = [];
+  void addToCart(Food food, List<Addon> selectedAddons) {
+    CartItem? cartItem = _cart.firstWhereOrNull((item){
+      bool isSameFood= item.food==food;
+      bool isSameAddons = ListEquality().equals(item.selectedAddons, selectedAddons);
+      return isSameFood&&isSameAddons;
+    });
+    if(cartItem!= null){
+      cartItem.quantity++;
+    }
+    else{
+      _cart.add(CartItem(food: food, selectedAddons: selectedAddons));
+    }
+    notifyListeners();
+  }
+  void removeFromCart(CartItem cartItem){
+    int cartIndex = _cart.indexOf(cartItem);
+    if(cartIndex!=-1){
+      if(_cart[cartIndex].quantity>1){
+        _cart[cartIndex].quantity--;
+      }else{
+        _cart.removeAt(cartIndex);
+      }
+    }
+    notifyListeners();
+  }
+  double getTotalPrice(){
+    double total = 0.0;
+    for(CartItem cartItem in _cart){
+      double itemTotal = cartItem.food.price;
+      for(Addon addon in cartItem.selectedAddons){
+         itemTotal+= addon.price;
+      }
+      total +=itemTotal*cartItem.quantity;
+    }
+    return total;
+  }
+  int getTotalItemCount(){
+    int totalItemCount =0;
+    for(CartItem cartItem in _cart){
+      totalItemCount += cartItem.quantity;
+    }
+    return totalItemCount;
+  }
+  void clearCart(){
+    _cart.clear();
+    notifyListeners();
+  }
 }
