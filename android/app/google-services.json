@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "658163709332",
+    "project_id": "yummly-app-a1648",
+    "storage_bucket": "yummly-app-a1648.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:658163709332:android:f425f9371c233ebcdb8b81",
+        "android_client_info": {
+          "package_name": "com.example.yumly"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1-rZzdVMypau9dfi1FGf-9N82CsYHvgU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
