@@ -341,12 +341,17 @@ class Restaurant with ChangeNotifier {
       ],
     ),
   ];
-
   List<Food> get menu => _menu;
 
   List<CartItem> get cart => _cart;
   final List<CartItem> _cart = [];
 
+   String _deliveryAddress = '99 Hollywood Blv';
+  String get deliveryAddress=>_deliveryAddress;
+void updateDeliveryAddress(String newAddress){
+  _deliveryAddress = newAddress;
+  notifyListeners();
+}
   void addToCart(Food food, List<Addon> selectedAddons) {
     CartItem? cartItem = _cart.firstWhereOrNull((item) {
       bool isSameFood = item.food == food;
@@ -434,6 +439,8 @@ class Restaurant with ChangeNotifier {
     receipt.writeln("--------------");
     receipt.writeln("Total Items: ${getTotalItemCount()}");
     receipt.writeln("Total Price: ${_formatPrice(getTotalPrice())}");
+    receipt.writeln();
+    receipt.writeln("Delivering to : $_deliveryAddress");
     return receipt.toString();
   }
 }

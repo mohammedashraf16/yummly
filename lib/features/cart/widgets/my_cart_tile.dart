@@ -32,7 +32,7 @@ class MyCartTile extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(cartItem.food.name),
+                    Text(cartItem.food.name,maxLines: 2,overflow: TextOverflow.ellipsis,),
                     Text('\$ ${cartItem.food.price}'),
                   ],
                 ),

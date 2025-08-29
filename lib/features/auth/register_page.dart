@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:yumly/core/components/my_button.dart';
 import 'package:yumly/core/components/my_text_field.dart';
+import 'package:yumly/features/auth/service/auth_service.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key, this.onTap});
+
   final void Function()? onTap;
+
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
@@ -13,6 +16,29 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
+
+  void register() async {
+    final _authService = AuthService();
+    if (passwordController.text == confirmPasswordController.text) {
+      try {
+        await _authService.signUpWithEmailAndPassword(
+          emailController.text,
+          passwordController.text,
+        );
+      } catch (e) {
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(title: Text(e.toString())),
+        );
+      }
+    } else {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(title: Text("Passwords don't match")),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +79,7 @@ class _RegisterPageState extends State<RegisterPage> {
               obscureText: true,
             ),
             SizedBox(height: 25),
-            MyButton(text: "Sign Up", onTap: () {}),
+            MyButton(text: "Sign Up", onTap: register),
             SizedBox(height: 25),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -82,6 +108,7 @@ class _RegisterPageState extends State<RegisterPage> {
           ],
         ),
       ),
-    );;
+    );
+    ;
   }
 }

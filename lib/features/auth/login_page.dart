@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:yumly/core/components/my_button.dart';
 import 'package:yumly/core/components/my_text_field.dart';
-import 'package:yumly/features/home/home_page.dart';
-
+import 'package:yumly/features/auth/service/auth_service.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key, this.onTap});
+
   final void Function()? onTap;
 
   @override
@@ -14,9 +14,22 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-void login(){
-  Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
-}
+
+  void login() async {
+    final _authService = AuthService();
+    try {
+      await _authService.signInWithEmailAndPassword(
+        emailController.text,
+        passwordController.text,
+      );
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(title: Text(e.toString())),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

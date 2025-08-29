@@ -1,9 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:yumly/core/database/firestore.dart';
+import 'package:yumly/features/home/models/restaurant.dart';
 import 'package:yumly/features/payment/my_receipt.dart';
 
-class DeliveryProgressPage extends StatelessWidget {
+class DeliveryProgressPage extends StatefulWidget {
   const DeliveryProgressPage({super.key});
 
+  @override
+  State<DeliveryProgressPage> createState() => _DeliveryProgressPageState();
+}
+
+class _DeliveryProgressPageState extends State<DeliveryProgressPage> {
+  FirestoreService db= FirestoreService();
+  @override
+  void initState() {
+    super.initState();
+    String receipt = context.read<Restaurant>().displayCartReceipt();
+    db.saveOrderToDatabase(receipt);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
